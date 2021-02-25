@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), CoroutineScope {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         textViewFlow.setOnClickListener {
-            textViewFlow.text = "Starting Flow Request..."
+            textViewFlow.text = "Starting Request..."
 
             GlobalScope.launch {
                 try {
@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), CoroutineScope {
                             LaunchListQuery()
                         }.collect {
                             val resultTime = System.currentTimeMillis() - startTime
-                            textViewFlow.text = "The operation took $resultTime ms"
+                            textViewFlow.text = "Request took $resultTime ms\nClick again to fetch data"
                         }
                 } catch (e: Exception) {
                     textViewFlow.text = "Request error"
