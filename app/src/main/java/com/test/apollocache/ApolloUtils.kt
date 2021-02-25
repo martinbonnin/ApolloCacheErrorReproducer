@@ -37,8 +37,8 @@ fun createApolloOkHttpClient(): OkHttpClient {
         .connectTimeout(CONNECTION_TIMEOUT, TimeUnit.MILLISECONDS)
         .readTimeout(READ_TIMEOUT, TimeUnit.MILLISECONDS)
 
-    //okHttpBuilder.sslSocketFactory(factory, manager)
-    //okHttpBuilder.hostnameVerifier(HostnameVerifier { _, _ -> true })
+    okHttpBuilder.sslSocketFactory(factory, manager)
+    okHttpBuilder.hostnameVerifier(HostnameVerifier { _, _ -> true })
     return okHttpBuilder.build()
 }
 
